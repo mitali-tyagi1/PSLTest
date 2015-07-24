@@ -9,7 +9,7 @@ namespace PSLTest.Helper
 {
     public class ItemHelper
     {
-        public Dictionary<string, string> DictType = new Dictionary<string, string>()
+        public Dictionary<string, string> DictforType = new Dictionary<string, string>()
         {
             {"learningcurve","CustomActivity"},
             {"resource","Resource"},
@@ -18,6 +18,13 @@ namespace PSLTest.Helper
             {"unit","Folder"},
             {"quiz","Assessment"},
             {"argaflashcard","Assignment"},
+        };
+
+        public Dictionary<string, string> DictforHref = new Dictionary<string, string>()
+        {
+            {"quiz","a"},
+            {"external","ExternalLocation"},
+            {"internal","Internallocation"},
         };
         
         public string GetParentId(XElement xItemElement)
@@ -31,8 +38,8 @@ namespace PSLTest.Helper
         {
             string strType = string.Empty;
             strType = xItemElement.Attribute("type").Value;
-            if (strType != "" && DictType.Keys.Contains(strType))
-                strType = DictType[strType].ToString();
+            if (strType != "" && DictforType.Keys.Contains(strType))
+                strType = DictforType[strType].ToString();
             else 
                 strType = "NO_VALUE";
             return strType;
@@ -41,7 +48,9 @@ namespace PSLTest.Helper
         public string GetSequecneId(XElement xItemElement)
         {
             string strSequence = "NO_VALUE";
+            CommonFunctions  cmf=new CommonFunctions();
             strSequence = xItemElement.Element("toc").Element("structure").Element("sequence").Value;
+            strSequence = cmf.ConvertToAgilixBasedSequence(strSequence);
             return strSequence;
         }
 
@@ -51,6 +60,47 @@ namespace PSLTest.Helper
             strTitle = xItemElement.Element("contentmetadata").Element("title").Value;
             return strTitle;
         }
+
+        public Href GetHref(XElement xItemElement, string type, string bfwtype, string subtype,string  DLAPtier,string EntityId)
+        {
+            Href itemHref = new Href();
+            string strHREF = "NO_VALUE";
+            string StrUrl = "ftp://" + DLAPtier + ".dlap.bfwpub.com/" + "Sitebuilder";
+
+            if (DictforHref.ContainsKey(type))
+                strHREF = "a";
+            else
+            {
+                string strFileName = xItemElement.Element("contentmetadata").Element("defaultfile").Value;
+                string fileType = xItemElement.Element("contentmetadata").Element("defaultfile").Attribute("type").Value;
+                if (DictforHref.ContainsKey(fileType))
+                    strHREF = DictforHref[fileType] + "/" + strFileName;
+            }
+            itemHref.EntityId = EntityId;
+            itemHref.Name = strHREF;
+            return itemHref;
+        }
+
+
+        public List<BfwMetadata> GetbfwMetadata(XElement xItemElement)
+        {
+            List<BfwMetadata> bfwMetadata = new List<BfwMetadata>();
+            var itemMetadata = from metadata in xItemElement.Descendants("coursecontentmetadata") where metadata.Element("coursecontentmetadata").Element("allowComments")!=null select metadata;
+
+            foreach (var meta in itemMetadata)
+            {
+                BfwMetadata bfwMeta = new BfwMetadata();
+
+                bfwMeta.MetDatavalue = meta.Value;
+                bfwMeta.Type = "Boolean";
+                bfwMeta.Name = "bfw_allowcomments";
+
+                bfwMetadata.Add(bfwMeta);
+            }
+            return bfwMetadata;
+        }
+        
+
 
        
     }

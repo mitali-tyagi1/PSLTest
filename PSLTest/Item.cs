@@ -176,6 +176,9 @@ namespace PSLTest
     {
         [XmlAttribute("entityid")]
         public string EntityId { get; set; }
+
+        [XmlText]
+        public string Name { get; set; }
     }
 
     public class Period
@@ -197,6 +200,9 @@ namespace PSLTest
 
         [XmlAttribute("type")]
         public string Type { get; set; }
+
+        [XmlText]
+        public string MetDatavalue { get; set; }
     }
 
     public class BfwProperty

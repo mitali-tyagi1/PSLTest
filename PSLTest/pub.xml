@@ -3,7 +3,17 @@
   <publishuser>gsternig</publishuser>
   <request rsuiteid="bsi__52FDF221__1CCC__4C41__91BD__FF5C13812038" type="learningcurve">
     <version>2.1</version>
-    <action>insert</action>    
+    <action>insert</action>
+    <contentmetadata>
+      <title>Chapter 1</title>
+      <contenttype>ExternalContent</contenttype>
+      <displaytype>Display Content</displaytype>
+      <defaultfile type="external" version="">chapter1.html</defaultfile>
+      <referencedobjects>
+        <object version="1">/js</object>
+        <object version="1">/images</object>
+      </referencedobjects>
+    </contentmetadata>
     <coursecontentmetadata>
       <allowComments>true</allowComments>
       <attemptlimit>0</attemptlimit>
@@ -25,7 +35,7 @@
       <structure type="launchpad" hidefromlaunchpad="no">
         <associatedunitid/>
         <parentid>bsi__17593B4C__90B3__45B3__8211__6B0CA6984500</parentid>
-        <sequence>zzza</sequence>
+        <sequence>1</sequence>
       </structure>
     </toc>
   </request>
@@ -33,7 +43,7 @@
     <version>2.1</version>
     <action>insert</action>
     <contentmetadata>
-      <title>Reel Teaching Clip:  Chinese Laborers Build the Railroad (1:41)</title>
+      <title>Chapter 2</title>
       <contenttype>ExternalContent</contenttype>
       <displaytype>Display Content</displaytype>
       <defaultfile type="external" version="">chapter1.html</defaultfile>
@@ -63,7 +73,7 @@
       <structure type="launchpad" hidefromlaunchpad="no">
         <associatedunitid/>
         <parentid>bsi__17593B4C__90B3__45B3__8211__6B0CA6984501</parentid>
-        <sequence>zzzb</sequence>
+        <sequence>2</sequence>
       </structure>
     </toc>
   </request>
@@ -71,7 +81,7 @@
     <version>2.1</version>
     <action>update</action>
     <contentmetadata>
-      <title>Reel Teaching Clip: Civil Rights in Birmingham (2:43)</title>
+      <title>Chapter 3</title>
       <contenttype>ExternalContent</contenttype>
       <displaytype>Display Content</displaytype>
       <defaultfile type="external" version="">chapter1.html</defaultfile>
@@ -101,7 +111,7 @@
       <structure type="launchpad" hidefromlaunchpad="no">
         <associatedunitid/>
         <parentid>bsi__17593B4C__90B3__45B3__8211__6B0CA6984502</parentid>
-        <sequence>zzzc</sequence>
+        <sequence>3</sequence>
       </structure>
     </toc>
   </request>
@@ -109,7 +119,7 @@
     <version>4</version>
     <action>insert</action>
     <contentmetadata>
-      <title>Reel Teaching Clip:  Chinese Immigrants Encounter Nativism (2:04)</title>
+      <title>Chapter 4</title>
       <contenttype>ExternalContent</contenttype>
       <displaytype>Display Content</displaytype>
       <defaultfile type="external" version="">chapter1.html</defaultfile>
@@ -139,7 +149,7 @@
       <structure type="launchpad" hidefromlaunchpad="no">
         <associatedunitid/>
         <parentid>bsi__17593B4C__90B3__45B3__8211__6B0CA6984503</parentid>
-        <sequence>zzzd</sequence>
+        <sequence>4</sequence>
       </structure>
     </toc>
   </request>
@@ -147,7 +157,7 @@
     <version>4</version>
     <action>insert</action>
     <contentmetadata>
-      <title>Reel Teaching Clip:  Chinese Immigrants Encounter Nativism (2:04)</title>
+      <title>Chapter 5</title>
       <contenttype>ExternalContent</contenttype>
       <displaytype>Display Content</displaytype>
       <defaultfile type="external" version="">chapter1.html</defaultfile>
@@ -177,7 +187,7 @@
       <structure type="launchpad" hidefromlaunchpad="no">
         <associatedunitid/>
         <parentid>bsi__17593B4C__90B3__45B3__8211__6B0CA6984504</parentid>
-        <sequence>zzze</sequence>
+        <sequence>5</sequence>
       </structure>
     </toc>
   </request>

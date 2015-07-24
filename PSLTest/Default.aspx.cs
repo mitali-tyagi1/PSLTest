@@ -58,6 +58,7 @@ namespace PSLTest
             ItemHelper itHelp = new ItemHelper();
             XDocument xDoc = XDocument.Load("D:\\Work\\PSL\\PSLTest_dev\\PSLTest\\PSLTest\\pub.xml");
             string entityid = getEntityId(xDoc);
+            string strDLAPTier=getDLAPTier(xDoc);
             var itemXML = from itXML in xDoc.Descendants("pubrequest").Elements("request") select itXML;
             ItemRequest itemReq = new ItemRequest();
             itemReq.Item = new List<Item>();
@@ -71,6 +72,8 @@ namespace PSLTest
                 itemdata.Sequence = itHelp.GetSequecneId(item);
                 itemdata.Type = itHelp.GetType(item);
                 itemdata.Title = itHelp.GetTitle(item);
+                itemdata.Href= itHelp.GetHref(item,itemdata.Type,"","",strDLAPTier,entityid);
+                //itemdata.Metadata = itHelp.GetbfwMetadata(item);
 
                 newItem.Data = itemdata;
                 itemReq.Item.Add(newItem);
@@ -87,6 +90,14 @@ namespace PSLTest
             strEntityId = pubrequest.Element("pubrequest").Attribute("entityid").Value;
             if (strEntityId == "")
                 strEntityId = "PRODUCT_MASTER_COURSE_ID";
+            return strEntityId;
+        }
+        public string getDLAPTier(XDocument pubrequest)
+        {
+            string strEntityId = string.Empty;
+            strEntityId = pubrequest.Element("pubrequest").Attribute("tier").Value;
+            if (strEntityId == "")
+                strEntityId = "dev";
             return strEntityId;
         }
     }
