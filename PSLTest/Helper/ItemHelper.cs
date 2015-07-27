@@ -14,10 +14,11 @@ namespace PSLTest.Helper
             {"learningcurve","CustomActivity"},
             {"resource","Resource"},
             {"arga","CustomActivity"},
-            {"dropbox","Assignment"},
+            {"dropbox","Resource"},
             {"unit","Folder"},
             {"quiz","Assessment"},
             {"argaflashcard","Assignment"},
+            {"ebook",""},
         };
 
         public Dictionary<string, string> DictforHref = new Dictionary<string, string>()
